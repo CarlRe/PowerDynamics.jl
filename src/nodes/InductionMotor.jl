@@ -9,7 +9,7 @@ end begin
     @assert ωb > 0
 end [[ω, dω],[Te, dTe]] begin
     TI = P/ω
-
+    du = im * ω* u
     dω = (Te - TI)/J
     dTe = -(Te + Tm) - (B/ωb)*((ω - ωb)/Tm)
 end
