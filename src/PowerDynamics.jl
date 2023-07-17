@@ -40,6 +40,7 @@ include("nodes/experimental/CurtailedPowerPlantWithInertia.jl")
 include("nodes/experimental/CompositeNode.jl")
 include("nodes/experimental/FluctuationNode.jl")
 include("nodes/experimental/NormalForm.jl")
+include(joinpath(raw"C:\Users\carlr\Documents\GitHub\ADN_Modelling_bottom_up\julia\models\InductionMotor.jl"))
 
 # requirements for the IONodes
 include("IONodes/utils.jl")
