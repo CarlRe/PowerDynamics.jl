@@ -124,7 +124,7 @@ function find_operationpoint(
     ic_guess = nothing;
     p0 = nothing,
     t0 = 0.0,
-    sol_method = :rootfind,
+    sol_method = :nlsolve,
     solve_powerflow = false,
     sol_kwargs...
 )

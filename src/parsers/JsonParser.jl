@@ -79,6 +79,8 @@ function convert_node(node)
         node = VoltageDependentLoad(;sym_params...)
     elseif type == "NormalForm"
         node = NormalForm(;sym_params...)
+    elseif type == "InductionMotor"
+        node = InductionMotor(;sym_params...)
     else
         throw(ArgumentError("Invalid type: $type"))
     end

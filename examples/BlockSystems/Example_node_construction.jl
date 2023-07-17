@@ -22,7 +22,7 @@ Implementation of `VSIVoltagePT1` as an IONode.
 
 ```
 =#
-
+using NLsolve: nlsolve
 using BlockSystems
 using PowerDynamics.IOComponents
 using PowerDynamics: IONode, GFI, SlackAlgebraic, PiModelLine, PowerGrid, find_operationpoint, ChangeInitialConditions, simulate, Inc
@@ -123,7 +123,7 @@ gfi = GFI(τ_v = 0.005,    # time constant voltage control delay
           V_r = 1.0,   # reference/ desired voltage
           P   = 0.303, # active (real) power infeed
           Q   = 0.126, # reactive (imag) power infeed                .
-          ω_r = 0.0)   # refrence/ desired frequency
+          ω_r = 1)   # refrence/ desired frequency
 
 
 buses=OrderedDict(
@@ -140,7 +140,7 @@ timespan= (0.0,0.1)
 #=
 Then a simple voltage perturbation at node is simulated.
 =#
-fault1 = ChangeInitialConditions(node="bus1", var=:u_r, f=Inc(0.2))
+fault1 = ChangeInitialConditions(node="bus1", var=:u_r, f=Inc(5))
 solution1 = simulate(fault1, powergrid, operationpoint, timespan)
 using Plots
 plot(solution1.dqsol)
